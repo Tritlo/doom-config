@@ -6,3 +6,5 @@
 ;; (package! another-package :recipe (:host github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 ;; (package! fill-column-indicator)
+;;
+(package! exec-path-from-shell)
