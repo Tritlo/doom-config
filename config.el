@@ -16,6 +16,8 @@
 
 (exec-path-from-shell-copy-env "NIX_GHC_LIBDIR")
 
+
+
 (map! :leader
       (:after lsp-mode
         (:prefix ("l" . "LSP")
@@ -28,8 +30,16 @@
             :desc "Glance at doc" "g" #'lsp-ui-doc-glance
             :desc "Toggle imenu"  "i" #'lsp-ui-imenu
             )
-          )))
+          ))
+       (:prefix-map ("b" . "buffer")
+        :desc "Previous buffer"             "h"   #'previous-buffer
+        :desc "Next buffer"                 "l"   #'next-buffer       )
 
+      )
+
+(map! :map org-mode-map
+      :localleader
+      "x" #'org-latex-preview)
 
 (after! ivy
   (define-key ivy-minibuffer-map (kbd "C-h") 'ivy-backward-delete-char))
